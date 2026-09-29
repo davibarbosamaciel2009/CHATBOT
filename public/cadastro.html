@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vilões do Homem-Aranha - Cadastro</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="menu-superior">
+        <nav class="menu">
+            <a class="link" href="index.html">Home</a>
+            <a class="link" href="site.html">Vilões</a>
+            <a class="link" href="sobre.html">Sobre</a>
+            <a class="link" href="chatbot.html">Chatbot</a>
+            <a class="link" href="login.html">Login</a>
+            <a class="link ativo" href="cadastro.html">Cadastro</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="secao-cadastro">
+            <article class="formulario-box">
+                <h2>Criar Acesso</h2>
+                <p>Cadastre-se para liberar o banco de dados dos vilões de Nova York.</p>
+                
+                <form id="cadastro-form">
+                    <label for="usuario">Nome de Usuário:</label>
+                    <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                    <label for="senha">Senha de Acesso:</label>
+                    <input type="password" id="senha" name="senha" placeholder="Mínimo de 6 caracteres" minlength="6" required>
+
+                    <button type="submit" class="botao-enviar">Cadastrar</button>
+                    <p id="mensagem" class="mensagem-formulario" role="alert"></p>
+                </form>
+                <a class="link-formulario" href="login.html">Já tenho cadastro</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vilões do Homem-Aranha. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+
+</body>
+</html>

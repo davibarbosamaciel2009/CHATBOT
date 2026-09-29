@@ -1,0 +1,488 @@
+:root {
+    --cor-fundo-escuro: #0b0b0d;
+    --cor-fundo-card: rgba(255, 255, 255, 0.03);
+    --cor-texto-claro: #f0f3f4;
+    --cor-aranha-principal: #b11313;
+    --cor-aranha-hover: #e61c1c;
+    --gradiente-secao: linear-gradient(180deg, #0b0b0d 0%, #141419 100%);
+    --sombra-texto: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    --sombra-imagem: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.7));
+    --borda-card: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    background-color: var(--cor-fundo-escuro); 
+    color: var(--cor-texto-claro);
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.menu-superior {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(20, 20, 25, 0.9); 
+    backdrop-filter: blur(10px); 
+    border-bottom: 2px solid var(--cor-aranha-principal); 
+    padding: 15px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.link {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    padding: 8px 35px;
+    background-color: #0b0b0d; 
+    border: 3px solid var(--cor-texto-claro); 
+    border-radius: 50px; 
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-shadow: var(--sombra-texto);
+}
+
+.link:hover, .link.ativo {
+    color: white;
+    background-color: var(--cor-aranha-principal); 
+    border-color: var(--cor-aranha-principal);
+}
+
+.secao-home {
+    background: var(--gradiente-secao);
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.boas-vindas h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 3.5rem;
+    color: var(--cor-aranha-principal);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.boas-vindas p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.vitrine {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    max-width: 1200px;
+    padding: 60px 20px;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.heroi {
+    background-color: var(--cor-fundo-card);
+    border: var(--borda-card);
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.heroi img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; 
+    border-radius: 12px;
+    margin-bottom: 15px;
+    filter: var(--sombra-imagem);
+}
+
+.heroi h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    text-shadow: var(--sombra-texto);
+}
+
+.heroi p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.botao-acao {
+    background-color: var(--cor-aranha-principal);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.botao-acao:hover {
+    background-color: var(--cor-aranha-hover);
+    transform: scale(1.05);
+}
+
+.duende:hover { border-color: #2e8b57; box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3); transform: translateY(-5px); }
+.venom:hover { border-color: #4b0082; box-shadow: 0 10px 25px rgba(75, 0, 130, 0.4); transform: translateY(-5px); }
+.octopus:hover { border-color: #b8860b; box-shadow: 0 10px 25px rgba(184, 134, 11, 0.3); transform: translateY(-5px); }
+.mysterio:hover { border-color: #008b8b; box-shadow: 0 10px 25px rgba(0, 139, 139, 0.4); transform: translateY(-5px); }
+
+.secao-contato {
+    background: var(--gradiente-secao);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-formulario {
+    background-color: rgba(20, 20, 25, 0.8);
+    border: var(--borda-card);
+    padding: 40px;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.container-formulario h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    color: var(--cor-aranha-principal);
+    margin-bottom: 10px;
+}
+
+.container-formulario p {
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.formulario-alerta {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formulario-alerta input {
+    padding: 12px;
+    background-color: #0b0b0d;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+}
+
+.formulario-alerta input:focus {
+    outline: none;
+    border-color: var(--cor-aranha-principal);
+}
+
+.botao-formulario {
+    background-color: var(--cor-aranha-principal);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.3rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.botao-formulario:hover {
+    background-color: var(--cor-aranha-hover);
+    transform: scale(1.02);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #050507;
+    color: #777;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.9rem;
+}
+
+/* ==================== ABA DO CHATBOT ==================== */
+.secao-chatbot {
+    background: var(--gradiente-secao);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 150px);
+}
+
+.painel-chat {
+    background-color: rgba(20, 20, 25, 0.8);
+    border: var(--borda-card);
+    border-color: var(--cor-aranha-principal);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 550px;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.painel-chat h2 {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    color: var(--cor-aranha-principal);
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-shadow: var(--sombra-texto);
+}
+
+.painel-chat p {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+#chat-messages {
+    flex: 1;
+    padding: 15px;
+    background-color: var(--cor-fundo-escuro);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.message {
+    padding: 12px 16px;
+    border-radius: 8px;
+    max-width: 85%;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.user {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--cor-texto-claro);
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bot {
+    background-color: #141419;
+    color: #e0e0e0;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+    border-left: 4px solid var(--cor-aranha-principal);
+}
+
+.chat-input-container {
+    display: flex;
+    gap: 10px;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 14px;
+    background-color: var(--cor-fundo-escuro);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 1.1rem;
+}
+
+#chat-input:focus {
+    outline: none;
+    border-color: var(--cor-aranha-principal);
+}
+
+.botao-chat {
+    background-color: var(--cor-aranha-principal);
+    color: white;
+    border: none;
+    padding: 0 25px;
+    font-family: 'Bangers', cursive;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s ease;
+}
+
+.botao-chat:hover {
+    background-color: var(--cor-aranha-hover);
+    transform: scale(1.03);
+}
+
+
+
+
+
+.secao-cadastro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    background: linear-gradient(135deg, #1a0000, #000000, #001122); 
+    padding: 20px;
+}
+
+
+.formulario-box {
+    background-color: rgba(20, 20, 20, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid #ff0000;
+ 
+    box-shadow: 0px 0px 25px rgba(255, 0, 0, 0.4); 
+}
+
+.formulario-box h2 {
+    color: #ff0000;
+    margin-bottom: 10px;
+    
+    text-shadow: 2px 2px 4px #000;
+}
+
+.formulario-box p {
+    color: #bbb;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+form label {
+    color: #fff;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+form input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    border-radius: 6px;
+    background-color: #111;
+    color: #fff;
+    font-size: 16px;
+}
+
+form input:focus {
+    outline: none;
+    border-color: #ff0000;
+}
+
+
+.botao-enviar {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+   
+    transition: all 0.3s ease-in-out; 
+}
+
+
+.botao-enviar:hover {
+    background-color: #b30000; 
+    transform: scale(1.03); 
+    box-shadow: 0px 0px 15px #ff0000; 
+}
+
+.botao-enviar:disabled {
+    cursor: wait;
+    opacity: 0.65;
+    transform: none;
+}
+
+.mensagem-formulario {
+    min-height: 20px;
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.mensagem-formulario.erro {
+    color: #ff6b6b;
+}
+
+.mensagem-formulario.sucesso {
+    color: #7ee787;
+}
+
+.link-formulario {
+    display: inline-block;
+    margin-top: 20px;
+    color: #ff4d4d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-formulario:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+    .menu {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .link {
+        font-size: 1.25rem;
+        padding: 6px 14px;
+    }
+}

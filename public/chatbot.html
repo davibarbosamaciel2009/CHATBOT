@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vilões do Homem-Aranha - Chatbot</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="menu-superior">
+        <nav class="menu">
+            <a class="link" href="index.html">Home</a>
+            <a class="link" href="site.html">Vilões</a>
+            <a class="link" href="sobre.html">Sobre</a>
+            <a class="link ativo" href="chatbot.html">Chatbot</a>
+            <a class="link" href="login.html">Login</a>
+            <a class="link" href="cadastro.html">Cadastro</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="secao-chatbot">
+            <article class="painel-chat" id="chat-card">
+                <h2>Banco de Dados Oscorp</h2>
+                <p>Monitore os registros e envie mensagens aos vilões</p>
+                
+                <div id="chat-messages">
+                    <div class="message bot">Conexão estabelecida com os servidores centrais. Digite o nome de um vilão para interrogá-lo.</div>
+                </div>
+                
+                <form class="chat-input-container" id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Ex: Duende, Venom, Doc Ock, Mistério..." autocomplete="off" required>
+                    <button class="botao-chat" id="chat-submit" type="submit">ENVIAR</button>
+                </form>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vilões do Homem-Aranha. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatSubmit = document.getElementById('chat-submit');
+        const messagesContainer = document.getElementById('chat-messages');
+        const historico = [];
+
+        chatForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text || chatSubmit.disabled) return;
+
+            if (window.location.protocol === 'file:') {
+                appendMessage('Inicie o servidor com "npm start" e abra http://localhost:3000/chatbot.html para conversar com a IA.', 'bot');
+                return;
+            }
+
+            appendMessage(text, 'user');
+            historico.push({ role: 'user', content: text });
+            chatInput.value = '';
+            chatInput.disabled = true;
+            chatSubmit.disabled = true;
+            chatSubmit.textContent = '...';
+
+            try {
+                const response = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ historico: historico.slice(-20) })
+                });
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.erro || 'Não foi possível obter uma resposta da IA.');
+                }
+
+                historico.push({ role: 'assistant', content: result.resposta });
+                appendMessage(result.resposta, 'bot');
+            } catch (error) {
+                historico.pop();
+                appendMessage(error.message || 'Não foi possível conectar ao servidor.', 'bot');
+            } finally {
+                chatInput.disabled = false;
+                chatSubmit.disabled = false;
+                chatSubmit.textContent = 'ENVIAR';
+                chatInput.focus();
+            }
+        });
+
+        function appendMessage(text, sender) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', sender);
+            messageElement.textContent = text;
+            messagesContainer.appendChild(messageElement);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>

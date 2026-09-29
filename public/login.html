@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vilões do Homem-Aranha - Login</title>
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="menu-superior">
+        <nav class="menu">
+            <a class="link" href="index.html">Home</a>
+            <a class="link" href="site.html">Vilões</a>
+            <a class="link" href="sobre.html">Sobre</a>
+            <a class="link" href="chatbot.html">Chatbot</a>
+            <a class="link ativo" href="login.html">Login</a>
+            <a class="link" href="cadastro.html">Cadastro</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="secao-cadastro">
+            <article class="formulario-box">
+                <h2>Acessar Arquivos</h2>
+                <p>Entre com seus dados para acessar os arquivos secretos.</p>
+
+                <form id="login-form">
+                    <label for="login-email">E-mail:</label>
+                    <input type="email" id="login-email" name="email" placeholder="Digite seu e-mail" required>
+
+                    <label for="login-senha">Senha:</label>
+                    <input type="password" id="login-senha" name="senha" placeholder="Digite sua senha" required>
+
+                    <button type="submit" class="botao-enviar">Entrar no Sistema</button>
+                    <p id="mensagem" class="mensagem-formulario" role="alert"></p>
+                </form>
+                <a class="link-formulario" href="cadastro.html">Ainda não tenho cadastro</a>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Vilões do Homem-Aranha. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+</body>
+</html>
